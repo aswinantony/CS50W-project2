@@ -10,8 +10,11 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def index():
-    return render_template("common.html")
+    return render_template("index.html")
 
+@app.route("/channel")
+def enter_channel():
+    return render_template("channel.html")
 
 # export FLASK_DEBUG=1
 # export FLASK_APP=application.py
