@@ -16,5 +16,17 @@ def index():
 def enter_channel():
     return render_template("channel.html")
 
+@app.route("/signin", methods=['GET','POST'])
+def signin():
+    return render_template("signin.html")
+
+@app.route("/signin1", methods=['GET','POST'])
+def signin1():
+    return render_template("signin1.html")
+
+@app.route("/index1", methods=['GET','POST'])
+def index1():
+    return render_template("index1.html")
+
 # export FLASK_DEBUG=1
 # export FLASK_APP=application.py
