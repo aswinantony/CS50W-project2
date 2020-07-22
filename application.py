@@ -12,10 +12,6 @@ socketio = SocketIO(app)
 def index():
     return render_template("index.html")
 
-# @app.route("/channel")
-# def enter_channel():
-#     return render_template("channel.html")
-
 @app.route("/signin", methods=['GET','POST'])
 def signin():
     return render_template("signin.html")
