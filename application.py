@@ -65,6 +65,19 @@ def logout():
 
     return redirect("/")
 
+@app.route("/create", methods=['POST'])
+def create():
+    """ Create a channel and redirect to its page """
+
+    # Get channel name from form
+    newChannel = request.form.get("channel")
+
+    if newChannel in channelsCreated:
+        return render_template("error.html", message="that channel already exists!")
+
+    # Add channel to global list of channels
+    channelsCreated.append(newChannel)
+
 @app.route("/channels/", methods=['GET','POST'])
 def enter_channel(channel):
     return render_template("channel.html")
