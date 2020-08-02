@@ -3,6 +3,8 @@ import os
 from flask import Flask, render_template, session, request, redirect
 from flask_socketio import SocketIO, emit
 
+from login_decorator import login_required
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
@@ -14,6 +16,7 @@ channelsCreated = []
 usersLogged = []
 
 @app.route("/")
+@login_required
 def index():
     return render_template("index.html")
 
@@ -79,6 +82,7 @@ def create():
     channelsCreated.append(newChannel)
 
 @app.route("/channels/", methods=['GET','POST'])
+@login_required
 def enter_channel(channel):
     return render_template("channel.html")
 
