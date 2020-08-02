@@ -65,7 +65,7 @@ def logout():
 
     return redirect("/")
 
-# @app.route("/channels/", methods=['GET','POST'])
-# def enter_channel(channel):
-#     return render_template("channel.html")
+@app.route("/channels/", methods=['GET','POST'])
+def enter_channel(channel):
+    return render_template("channel.html")
 
