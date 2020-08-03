@@ -86,3 +86,24 @@ def create():
 def enter_channel(channel):
     return render_template("channel.html")
 
+@socketio.on("joined", namespace='/')
+def joined():
+    """ Send message to announce that user has entered the channel """
+    
+    # Save current channel to join room.
+    room = session.get('current_channel')
+
+    join_room(room)
+    
+
+
+@socketio.on("left", namespace='/')
+def left():
+    """ Send message to announce that user has left the channel """
+
+    room = session.get('current_channel')
+
+    leave_room(room)
+
+
+
